@@ -17,7 +17,7 @@ A Working Install of Snipe IT V4+
 ```
 
 ## Usage
-Setup
+
 ```csharp
 SnipeItApi snip = new SnipeItApi();
 snipe.ApiSettings.ApiToken = "XXXXXXXX"
@@ -26,7 +26,7 @@ snipe.ApiSettings.BaseUrl = new Uri("http://xxxxx.com/api/v1")
 
 Each endpoint has it's own manager assigned to the SnipeItApi object.  Example, SnipeItApi.AssetManager 
 
-Each endpoint has a comment sent of actions.  With the exception Assets, Status Labels and Users which use extended managers to deal with extra API functions associated with them. 
+Each endpoint has a common set of actions.  With the exception Assets, Status Labels and Users which use extended managers to deal with extra API functions associated with them. 
 
 ##### Common Actions
 Return all objects at this end point
@@ -78,7 +78,7 @@ Asset asset = new Asset() {
     Name = "Loaner1",
     AssetTag = "12345678",
     Model = snipe.ModelManager.Get("Lenovo") as Model,
-    Status = snipe.StatusLabelManager.Get("Ready to Deploy) as StatusLabel
+    Status = snipe.StatusLabelManager.Get("Ready to Deploy") as StatusLabel
 };
 
 snipe.AssetManager.Create(asset);
