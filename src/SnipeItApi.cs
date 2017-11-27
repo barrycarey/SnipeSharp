@@ -23,7 +23,7 @@ namespace SnipeSharp
         public EndPointManager SupplierManager;
         public EndPointManager DepreciationManager;
         public EndPointManager DepartmentManager;
-
+        // Test 
         public IRequestManager ReqManager;
 
         public SnipeItApi()
