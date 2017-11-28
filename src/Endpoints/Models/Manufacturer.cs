@@ -6,7 +6,7 @@ namespace SnipeSharp.Endpoints.Models
 {
 
 
-    public class Manufacturer : CommonEndpointObject
+    public class Manufacturer : CommonEndpointModel
     {
         [JsonProperty("url")]
         [OptionalRequestHeader("url")]

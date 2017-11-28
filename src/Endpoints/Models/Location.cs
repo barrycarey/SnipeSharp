@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Location : CommonEndpointObject
+    public class Location : CommonEndpointModel
     {
         [JsonProperty("image")]
         public string Image { get; set; }

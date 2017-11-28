@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Endpoints.Models;
 using SnipeSharp.JsonConverters;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace SnipeSharp.Common
 
         [JsonProperty("payload")]
         [JsonConverter(typeof(DetectJsonObjectType))]
-        public ICommonEndpointObject Payload { get; set; }
+        public ICommonEndpointModel Payload { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }

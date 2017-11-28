@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Endpoints.Models;
 using SnipeSharp.JsonConverters;
 using System.Collections.Generic;
 
@@ -11,6 +12,6 @@ namespace SnipeSharp.Common
 
         [JsonProperty("rows")]
         [JsonConverter(typeof(DetectJsonObjectType))]
-        public List<ICommonEndpointObject> Rows { get; set; }
+        public List<ICommonEndpointModel> Rows { get; set; }
     }
 }

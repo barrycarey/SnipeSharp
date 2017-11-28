@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnipeSharp.Endpoints.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace SnipeSharp.Common
     public interface IRequestResponse
     {
         Dictionary<string, string> Messages { get; set; }
-        ICommonEndpointObject Payload { get; set; }
+        ICommonEndpointModel Payload { get; set; }
         string Status { get; set; }
     }
 }

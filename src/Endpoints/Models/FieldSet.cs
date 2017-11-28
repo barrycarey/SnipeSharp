@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class FieldSet : CommonEndpointObject
+    public class FieldSet : CommonEndpointModel
     {
     }
 }

@@ -4,7 +4,7 @@ using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Model : CommonEndpointObject
+    public class Model : CommonEndpointModel
     {
 
         [JsonProperty("manufacturer")]

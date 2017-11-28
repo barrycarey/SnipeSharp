@@ -1,9 +1,5 @@
-﻿using SnipeSharp.Endpoints.SearchFilters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SnipeSharp.Endpoints.Models;
+using SnipeSharp.Endpoints.SearchFilters;
 
 namespace SnipeSharp.Common
 {
@@ -11,10 +7,10 @@ namespace SnipeSharp.Common
     {
         // TODO: Implement bad return status handeling in implementations of this
         ApiSettings _apiSettings { get; set; }
-        string Put(string path, ICommonEndpointObject item);
+        string Put(string path, ICommonEndpointModel item);
         string Get(string path);
         string Get(string path, ISearchFilter filter);
-        string Post(string path, ICommonEndpointObject item);
+        string Post(string path, ICommonEndpointModel item);
         string Delete(string path);
         string Checkin(string path); // TODO: Remove this once we cleanup checkin/checkout
         void CheckApiTokenAndUrl();

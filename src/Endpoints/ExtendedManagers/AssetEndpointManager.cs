@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SnipeSharp.Common;
+using SnipeSharp.Endpoints.Models;
 
 namespace SnipeSharp.Endpoints.ExtendedManagers
 {
@@ -10,7 +11,7 @@ namespace SnipeSharp.Endpoints.ExtendedManagers
         {
         }
 
-        public IRequestResponse Checkout(ICommonEndpointObject item)
+        public IRequestResponse Checkout(ICommonEndpointModel item)
         {
             IRequestResponse result;
             string response = _reqManager.Post(string.Format("{0}/{1}/checkout", _endPoint, item.Id), item);
@@ -18,7 +19,7 @@ namespace SnipeSharp.Endpoints.ExtendedManagers
             return result;
         }
 
-        public IRequestResponse Checkin(ICommonEndpointObject item)
+        public IRequestResponse Checkin(ICommonEndpointModel item)
         {
             IRequestResponse result;
             string response = _reqManager.Checkin(string.Format("{0}/{1}/checkin",_endPoint, item.Id));

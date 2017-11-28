@@ -6,7 +6,7 @@ using SnipeSharp.Exceptions;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Category : CommonEndpointObject
+    public class Category : CommonEndpointModel
     {
         [JsonProperty("image")]
         public string Image { get; set; }

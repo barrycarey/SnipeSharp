@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Endpoints.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace SnipeSharp.Common
         public long Total { get; set; }
 
         [JsonProperty("rows")]
-        public List<ICommonEndpointObject> Rows { get; set; }
+        public List<ICommonEndpointModel> Rows { get; set; }
     }
 }

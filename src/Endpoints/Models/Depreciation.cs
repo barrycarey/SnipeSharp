@@ -4,7 +4,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Depreciation : CommonEndpointObject
+    public class Depreciation : CommonEndpointModel
     {
 
         private string _months;

@@ -6,7 +6,7 @@ using SnipeSharp.Exceptions;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class StatusLabel : CommonEndpointObject
+    public class StatusLabel : CommonEndpointModel
     {
         private string _type;
 

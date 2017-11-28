@@ -5,7 +5,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class User : CommonEndpointObject
+    public class User : CommonEndpointModel
     {
 
         [JsonProperty("name")]

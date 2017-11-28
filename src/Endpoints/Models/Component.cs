@@ -4,7 +4,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Component : CommonEndpointObject
+    public class Component : CommonEndpointModel
     {
         [JsonProperty("serial_number")]
         [OptionalRequestHeader("serial_number")]

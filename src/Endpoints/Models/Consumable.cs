@@ -4,7 +4,7 @@ using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Consumable : CommonEndpointObject
+    public class Consumable : CommonEndpointModel
     {
         [JsonProperty("category")]
         [RequiredRequestHeader("category_id")]

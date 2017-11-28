@@ -76,7 +76,7 @@ namespace SnipeSharp.Common
             return result;
         }
 
-        public string Post(string path, ICommonEndpointObject item)
+        public string Post(string path, ICommonEndpointModel item)
         {
 
             CheckApiTokenAndUrl();
@@ -91,7 +91,7 @@ namespace SnipeSharp.Common
             return result;
         }
 
-        public string Put(string path, ICommonEndpointObject item)
+        public string Put(string path, ICommonEndpointModel item)
         {
 
             CheckApiTokenAndUrl();
@@ -119,7 +119,7 @@ namespace SnipeSharp.Common
             return result;
         }
 
-        public FormUrlEncodedContent BuildQueryString(ICommonEndpointObject item)
+        public FormUrlEncodedContent BuildQueryString(ICommonEndpointModel item)
         {
 
             Dictionary<string, string> values = new Dictionary<string, string>();

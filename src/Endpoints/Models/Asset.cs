@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    class Asset : CommonEndpointObject
+    class Asset : CommonEndpointModel
     {
 
         [JsonProperty("name")]

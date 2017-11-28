@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SnipeSharp.Attributes;
+using SnipeSharp.Common;
 using SnipeSharp.JsonConverters;
 
 
-namespace SnipeSharp.Common
+namespace SnipeSharp.Endpoints.Models
 {
-    public class CommonEndpointObject : ICommonEndpointObject
+    public class CommonEndpointModel : ICommonEndpointModel
     {
         [JsonProperty("id")]
         public long Id { get; set; }

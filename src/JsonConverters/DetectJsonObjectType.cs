@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SnipeSharp.Common;
+using SnipeSharp.Endpoints.Models;
 using System;
 using System.Collections.Generic;
 
@@ -35,11 +35,11 @@ namespace SnipeSharp.JsonConverters
 
             if (token.Type == JTokenType.Array)
             {
-                List<ICommonEndpointObject> final = new List<ICommonEndpointObject>();
+                List<ICommonEndpointModel> final = new List<ICommonEndpointModel>();
 
                 foreach (JToken item in token)
                 {
-                    ICommonEndpointObject result = ResponsePayloadConverter.DetectObjectType(item);
+                    ICommonEndpointModel result = ResponsePayloadConverter.DetectObjectType(item);
                     if (result != null) { final.Add(result); }
                 }
 

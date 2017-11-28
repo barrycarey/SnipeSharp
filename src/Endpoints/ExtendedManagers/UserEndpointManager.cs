@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SnipeSharp.Common;
+using SnipeSharp.Endpoints.Models;
 
 namespace SnipeSharp.Endpoints.ExtendedManagers
 {
@@ -9,7 +10,7 @@ namespace SnipeSharp.Endpoints.ExtendedManagers
         {
         }
 
-        public IResponseCollection GetAssignedAssets(ICommonEndpointObject user)
+        public IResponseCollection GetAssignedAssets(ICommonEndpointModel user)
         {
             string response = _reqManager.Get(string.Format("{0}/{1}/assets", _endPoint, user.Id));
             IResponseCollection results = JsonConvert.DeserializeObject<ResultsRow>(response);

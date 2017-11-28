@@ -1,4 +1,5 @@
 ﻿using SnipeSharp.Common;
+using SnipeSharp.Endpoints;
 using SnipeSharp.Endpoints.ExtendedManagers;
 
 namespace SnipeSharp

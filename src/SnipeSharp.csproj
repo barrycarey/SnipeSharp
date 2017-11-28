@@ -53,7 +53,7 @@
     <Compile Include="Attributes\OptionalRequestHeader.cs" />
     <Compile Include="Attributes\RequiredRequestHeader.cs" />
     <Compile Include="Common\ApiSettings.cs" />
-    <Compile Include="Common\CommonEndpointObject.cs" />
+    <Compile Include="Endpoints\Models\CommonEndpointModel.cs" />
     <Compile Include="Common\Date.cs" />
     <Compile Include="Common\IRequestManager.cs" />
     <Compile Include="Common\RequestManager.cs" />
@@ -84,8 +84,8 @@
     <Compile Include="Exceptions\NullApiTokenException.cs" />
     <Compile Include="Exceptions\RequiredValueIsNullException.cs" />
     <Compile Include="Endpoints\Models\Asset.cs" />
-    <Compile Include="Common\ICommonEndpointObject.cs" />
-    <Compile Include="Common\IObjectManager.cs" />
+    <Compile Include="Endpoints\Models\ICommonEndpointModel.cs" />
+    <Compile Include="Endpoints\IEndpointManager.cs" />
     <Compile Include="Common\IResponseCollection.cs" />
     <Compile Include="Common\IRequestResponse.cs" />
     <Compile Include="Common\RequestResponse.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="JsonConverters\CustomFieldConverter.cs" />
     <Compile Include="JsonConverters\DetectJsonObjectType.cs" />
     <Compile Include="JsonConverters\MessageConverter.cs" />
-    <Compile Include="Common\EndPointManager.cs" />
+    <Compile Include="Endpoints\EndPointManager.cs" />
     <Compile Include="JsonConverters\ResponseDateTimeConverter.cs" />
     <Compile Include="JsonConverters\ResponseMessageConverter.cs" />
     <Compile Include="Endpoints\Models\Location.cs" />
@@ -116,7 +116,6 @@
   <ItemGroup>
     <Folder Include="build\" />
     <Folder Include="docs\" />
-    <Folder Include="src\" />
     <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

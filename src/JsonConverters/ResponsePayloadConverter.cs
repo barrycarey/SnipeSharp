@@ -15,14 +15,14 @@ namespace SnipeSharp.JsonConverters
         /// </summary>
         /// <param name="item">JToken object of the JSON to check</param>
         /// <returns></returns>
-        public static ICommonEndpointObject DetectObjectType(JToken item)
+        public static ICommonEndpointModel DetectObjectType(JToken item)
         {
 
             // TODO: This is hackish.  If we request an ID that doesn't exist the API sends back a response in RequestResponse format instead of the object format. 
             // There's probably a better way to deal with this case.  Will deal with it later.  For now we're shoe horning an IRequestResponse into an ICommonResponseObject
             if (item.Type != JTokenType.Array && item.Value<string>("status") != null)
             {
-                CommonEndpointObject result = new CommonEndpointObject()
+                CommonEndpointModel result = new CommonEndpointModel()
                 {
                     Name = string.Format("ERROR: {0}", item.Value<string>("messages"))
                 };
@@ -122,7 +122,7 @@ namespace SnipeSharp.JsonConverters
             
 
             // TODO: This may fail and needs testing
-            return item.ToObject<CommonEndpointObject>();
+            return item.ToObject<CommonEndpointModel>();
 
         }
     }

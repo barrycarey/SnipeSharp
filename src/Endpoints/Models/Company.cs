@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    public class Company : CommonEndpointObject
+    public class Company : CommonEndpointModel
     {
         [JsonProperty("image")]
         public string Image { get; set; }

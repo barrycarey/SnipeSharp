@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Common;
+using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
 using SnipeSharp.JsonConverters;
 using System.Linq;
 
-namespace SnipeSharp.Common
+namespace SnipeSharp.Endpoints
 {
-    public class EndPointManager : IObjectManager
+    public class EndPointManager : IEndpointManager
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
@@ -46,7 +48,7 @@ namespace SnipeSharp.Common
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public ICommonEndpointObject FindOne(ISearchFilter filter)
+        public ICommonEndpointModel FindOne(ISearchFilter filter)
         {
             string response = _reqManager.Get(_endPoint, filter);
             IResponseCollection result = JsonConvert.DeserializeObject<ResultsRow>(response);
@@ -59,12 +61,12 @@ namespace SnipeSharp.Common
         /// <param name="id">ID of the object to find</param>
         /// <returns></returns>
         // TODO: See if we get a concrete object or Iface back from this
-        public ICommonEndpointObject Get(int id)
+        public ICommonEndpointModel Get(int id)
         {
             // TODO: Find better way to deal with objects that are not found
-            ICommonEndpointObject result;
+            ICommonEndpointModel result;
             string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<ICommonEndpointObject>(response, new DetectJsonObjectType()); // TODO This feels like fuckery
+            result = JsonConvert.DeserializeObject<ICommonEndpointModel>(response, new DetectJsonObjectType()); // TODO This feels like fuckery
             return result;
         }
 
@@ -73,9 +75,9 @@ namespace SnipeSharp.Common
         /// </summary>
         /// <param name="name">The name of the object we want to find</param>
         /// <returns></returns>
-        public ICommonEndpointObject Get(string name)
+        public ICommonEndpointModel Get(string name)
         {
-            ICommonEndpointObject result;
+            ICommonEndpointModel result;
             name = name.ToLower();
             IResponseCollection everything = GetAll();
 
@@ -89,7 +91,7 @@ namespace SnipeSharp.Common
         /// </summary>
         /// <param name="toCreate"></param>
         /// <returns></returns>
-        public IRequestResponse Create(ICommonEndpointObject toCreate)
+        public IRequestResponse Create(ICommonEndpointModel toCreate)
         {
             IRequestResponse response;
 
@@ -98,7 +100,7 @@ namespace SnipeSharp.Common
             return response;
         }
 
-        public IRequestResponse Update(ICommonEndpointObject toUpdate)
+        public IRequestResponse Update(ICommonEndpointModel toUpdate)
         {
             IRequestResponse result;
             string response = _reqManager.Put(string.Format("{0}/{1}", _endPoint, toUpdate.Id), toUpdate);
