@@ -116,6 +116,11 @@ namespace SnipeSharp.Endpoints
             return result;
         }
 
+        public IRequestResponse Delete(ICommonEndpointModel toDelete)
+        {
+            return Delete((int)toDelete.Id);
+        }
+
         // TODO: This is specific to assets.  We should probably extend this class and make one specific for assets. 
 
     }
