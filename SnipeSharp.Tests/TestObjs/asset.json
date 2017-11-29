@@ -1,0 +1,75 @@
+﻿{
+  "id": 13,
+  "name": "TESTASSET",
+  "asset_tag": "12345678",
+  "serial": "a1e5bd5a5",
+  "model": {
+    "id": 1,
+    "name": "T470s"
+  },
+  "model_number": "T460s",
+  "status_label": {
+    "id": 2,
+    "name": "Ready to Deploy",
+    "status_meta": "deployable"
+  },
+  "category": {
+    "id": 1,
+    "name": "Laptop"
+  },
+  "manufacturer": {
+    "id": 1,
+    "name": "Lenovo"
+  },
+  "supplier": {
+    "id": 2,
+    "name": "Test Corp"
+  },
+  "notes": "This is a note",
+  "order_number": "abc12345",
+  "company": {
+    "id": 3,
+    "name": " test corp"
+  },
+  "location": {
+    "id": 2,
+    "name": "Maine"
+  },
+  "rtd_location": {
+    "id": 2,
+    "name": "Maine"
+  },
+  "image": null,
+  "assigned_to": null,
+  "warranty_months": "36 months",
+  "warranty_expires": {
+    "date": "2020-11-15",
+    "formatted": "2020-11-15"
+  },
+  "created_at": {
+    "datetime": "2017-11-29 06:49:19",
+    "formatted": "2017-11-29 06:49 AM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-29 06:50:20",
+    "formatted": "2017-11-29 06:50 AM"
+  },
+  "deleted_at": null,
+  "purchase_date": {
+    "date": "2017-11-15",
+    "formatted": "2017-11-15"
+  },
+  "last_checkout": null,
+  "expected_checkin": null,
+  "purchase_cost": "1000.00",
+  "user_can_checkout": true,
+  "custom_fields": [],
+  "available_actions": {
+    "checkout": true,
+    "checkin": true,
+    "clone": true,
+    "restore": false,
+    "update": true,
+    "delete": true
+  }
+}

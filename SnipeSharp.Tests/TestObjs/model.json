@@ -1,0 +1,37 @@
+﻿{
+  "id": 1,
+  "name": "T470s",
+  "manufacturer": {
+    "id": 1,
+    "name": "Lenovo"
+  },
+  "image": null,
+  "model_number": "T460s",
+  "depreciation": {
+    "id": 1,
+    "name": "Test"
+  },
+  "assets_count": 12,
+  "category": {
+    "id": 1,
+    "name": "Laptop"
+  },
+  "fieldset": null,
+  "eol": "36 months",
+  "notes": "",
+  "created_at": {
+    "datetime": "2017-11-19 21:43:19",
+    "formatted": "2017-11-19 09:43 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 12:08:59",
+    "formatted": "2017-11-25 12:08 PM"
+  },
+  "deleted_at": null,
+  "available_actions": {
+    "update": true,
+    "delete": true,
+    "clone": true,
+    "restore": false
+  }
+}

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    class Asset : CommonEndpointModel
+    public class Asset : CommonEndpointModel
     {
 
         [JsonProperty("name")]
@@ -39,7 +39,7 @@ namespace SnipeSharp.Endpoints.Models
         public Manufacturer Manufacturer { get; set; }
 
         [JsonProperty("supplier")]
-        public string Supplier { get; set; }
+        public Supplier Supplier { get; set; }
 
         [JsonProperty("notes")]
         public string Notes { get; set; }
