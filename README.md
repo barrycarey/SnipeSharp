@@ -77,8 +77,9 @@ Create a new asset
 Asset asset = new Asset() {
     Name = "Loaner1",
     AssetTag = "12345678",
-    Model = snipe.ModelManager.Get("Lenovo") as Model,
-    Status = snipe.StatusLabelManager.Get("Ready to Deploy") as StatusLabel
+    Model = snipe.ModelManager.Get("Lenovo"),
+    Status = snipe.StatusLabelManager.Get("Ready to Deploy"),
+	Location = snipe.LocationManager.Get("Maine")
 };
 
 snipe.AssetManager.Create(asset);
@@ -86,7 +87,7 @@ snipe.AssetManager.Create(asset);
 
 Update an Asset
 ```csharp
-Asset asset = snipe.AssetManager.Get("Loaner1") as Asset;
+Asset asset = snipe.AssetManager.Get("Loaner1");
 asset.Serial = "1i37dpc3k";
 snipe.AssetManager.Update(asset);
 ```
@@ -94,10 +95,10 @@ snipe.AssetManager.Update(asset);
 Get all assets from made by a certain manufacturer
 ```csharp
 AssetSearchFilter filter = new AssetSearchFilter() {
-    Manufacturer = snipe.ManufacturerManager.Get("Lenovo") as Manufacturer
+    Manufacturer = snipe.ManufacturerManager.Get("Lenovo")
 };
 
-ResponseCollection result = snipe.AssetManager.FindAll(filter);
+var result = snipe.AssetManager.FindAll(filter);
 ```
 ## Contributing
 
