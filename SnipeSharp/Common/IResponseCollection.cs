@@ -1,15 +1,10 @@
-﻿using SnipeSharp.Endpoints.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SnipeSharp.Common
 {
-    public interface IResponseCollection
+    public interface IResponseCollection<T>
     {
         long Total { get; set; }
-        List<ICommonEndpointModel> Rows { get; set; }
+        List<T> Rows { get; set; }
     }
 }

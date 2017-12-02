@@ -4,10 +4,10 @@ using SnipeSharp.Endpoints.SearchFilters;
 
 namespace SnipeSharp.Endpoints
 {
-    public interface IEndpointManager
+    public interface IEndpointManager<T>
     {
-        IResponseCollection GetAll();
-        IResponseCollection FindAll(ISearchFilter filter);
+        IResponseCollection<T> GetAll();
+        IResponseCollection<T> FindAll(ISearchFilter filter);
         ICommonEndpointModel FindOne(ISearchFilter filter);
         ICommonEndpointModel Get(int id);
         ICommonEndpointModel Get(string name);

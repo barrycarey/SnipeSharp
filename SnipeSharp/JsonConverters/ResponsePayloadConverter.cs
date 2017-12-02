@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using SnipeSharp.Common;
 using SnipeSharp.Endpoints.Models;
+using SnipeSharp.Exceptions;
 using System.Collections.Generic;
 
 namespace SnipeSharp.JsonConverters
@@ -119,10 +120,7 @@ namespace SnipeSharp.JsonConverters
                 return item.ToObject<Accessory>();
             }
 
-            
-
-            // TODO: This may fail and needs testing
-            return item.ToObject<CommonEndpointModel>();
+            throw new FailedToDetectObjectException();
 
         }
     }

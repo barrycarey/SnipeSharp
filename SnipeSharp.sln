@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnipeSharp", "SnipeSharp\Sn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnipeSharp.Tests", "SnipeSharp.Tests\SnipeSharp.Tests.csproj", "{012A8E24-AA43-47D1-9A5D-7F38F59DA537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnipeSharp.Demo", "SnipeSharp.Demo\SnipeSharp.Demo.csproj", "{A7984B80-EC03-48B3-AD4A-22D15CBF87E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{012A8E24-AA43-47D1-9A5D-7F38F59DA537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{012A8E24-AA43-47D1-9A5D-7F38F59DA537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{012A8E24-AA43-47D1-9A5D-7F38F59DA537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7984B80-EC03-48B3-AD4A-22D15CBF87E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7984B80-EC03-48B3-AD4A-22D15CBF87E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7984B80-EC03-48B3-AD4A-22D15CBF87E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7984B80-EC03-48B3-AD4A-22D15CBF87E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

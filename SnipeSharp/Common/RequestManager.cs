@@ -10,6 +10,8 @@ using System.Reflection;
 
 namespace SnipeSharp.Common
 {
+
+    // TODO: Do async properly.  This is deadlocking and useless right now
     public class RequestManager : IRequestManager
     {
 
@@ -51,7 +53,6 @@ namespace SnipeSharp.Common
             CheckApiTokenAndUrl();
 
             string result = "";
-            // TODO: Deal with this propertly
             HttpResponseMessage response = Client.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {

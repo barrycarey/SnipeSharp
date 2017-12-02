@@ -3,7 +3,10 @@ using SnipeSharp.Attributes;
 using SnipeSharp.Common;
 using SnipeSharp.JsonConverters;
 
-
+/// <summary>
+/// Represents the the base of all objects we get back the API.  This is the building block for all more 
+/// specific return objects. 
+/// </summary>
 namespace SnipeSharp.Endpoints.Models
 {
     public class CommonEndpointModel : ICommonEndpointModel

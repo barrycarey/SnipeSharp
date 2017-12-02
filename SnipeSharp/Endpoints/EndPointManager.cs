@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SnipeSharp.Endpoints
 {
-    public class EndPointManager : IEndpointManager
+    public class EndPointManager<T> where T : CommonEndpointModel
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
@@ -22,10 +22,10 @@ namespace SnipeSharp.Endpoints
         /// Gets all objects from the endpoint
         /// </summary>
         /// <returns></returns>
-        public IResponseCollection GetAll()
+        public ResponseCollection<T> GetAll()
         {
             string response = _reqManager.Get(_endPoint);
-            IResponseCollection results = JsonConvert.DeserializeObject<ResultsRow>(response);
+            ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
             return results;
         }
 
@@ -36,10 +36,10 @@ namespace SnipeSharp.Endpoints
         /// <param name="filter"></param>
         /// <returns></returns>
         // TODO: This should probabe be named different since it returns a collection instead of a single item
-        public IResponseCollection FindAll(ISearchFilter filter)
+        public ResponseCollection<T> FindAll(ISearchFilter filter)
         {
             string response = _reqManager.Get(_endPoint, filter);
-            IResponseCollection results = JsonConvert.DeserializeObject<ResultsRow>(response);
+            ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
             return results;
         }
 
@@ -48,11 +48,11 @@ namespace SnipeSharp.Endpoints
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public ICommonEndpointModel FindOne(ISearchFilter filter)
+        public T FindOne(ISearchFilter filter)
         {
             string response = _reqManager.Get(_endPoint, filter);
-            IResponseCollection result = JsonConvert.DeserializeObject<ResultsRow>(response);
-            return (result.Rows != null) ? result.Rows[0] : null;
+            ResponseCollection<T> result = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
+            return (result.Rows != null) ? result.Rows[0] : default(T);
         }
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace SnipeSharp.Endpoints
         /// <param name="id">ID of the object to find</param>
         /// <returns></returns>
         // TODO: See if we get a concrete object or Iface back from this
-        public ICommonEndpointModel Get(int id)
+        public T Get(int id)
         {
             // TODO: Find better way to deal with objects that are not found
-            ICommonEndpointModel result;
+            T result;
             string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<ICommonEndpointModel>(response, new DetectJsonObjectType()); // TODO This feels like fuckery
+            result = JsonConvert.DeserializeObject<T>(response, new DetectJsonObjectType()); // TODO This feels like fuckery
             return result;
         }
 
@@ -75,11 +75,13 @@ namespace SnipeSharp.Endpoints
         /// </summary>
         /// <param name="name">The name of the object we want to find</param>
         /// <returns></returns>
-        public ICommonEndpointModel Get(string name)
+        /// 
+        // TODO: Once we make result row generic make this generic 
+        public T Get(string name)
         {
-            ICommonEndpointModel result;
+            T result;
             name = name.ToLower();
-            IResponseCollection everything = GetAll();
+            ResponseCollection<T> everything = GetAll();
 
             result = everything.Rows.Where(i => i.Name.ToLower() == name).FirstOrDefault();
 

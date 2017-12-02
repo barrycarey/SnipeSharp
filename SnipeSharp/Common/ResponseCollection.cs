@@ -1,19 +1,17 @@
 ﻿using Newtonsoft.Json;
 using SnipeSharp.Endpoints.Models;
-using System;
+using SnipeSharp.JsonConverters;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnipeSharp.Common
 {
-    public class ResponseCollection : IResponseCollection
+    public class ResponseCollection<T> : IResponseCollection<T>
     {
         [JsonProperty("total")]
         public long Total { get; set; }
 
         [JsonProperty("rows")]
-        public List<ICommonEndpointModel> Rows { get; set; }
+        //[JsonConverter(typeof(DetectJsonObjectType))]
+        public List<T> Rows { get; set; }
     }
 }

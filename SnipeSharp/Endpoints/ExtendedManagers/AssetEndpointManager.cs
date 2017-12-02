@@ -4,7 +4,7 @@ using SnipeSharp.Endpoints.Models;
 
 namespace SnipeSharp.Endpoints.ExtendedManagers
 {
-    public class AssetEndpointManager : EndPointManager
+    public class AssetEndpointManager<T> : EndPointManager<Asset>
     {
         // Explicitly pass hardware as the endpoint, ignoring what the client gives us
         public AssetEndpointManager(IRequestManager reqManager, string endPoint) : base(reqManager, "hardware")

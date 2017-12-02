@@ -77,6 +77,7 @@
     <Compile Include="Endpoints\Models\User.cs" />
     <Compile Include="Endpoints\SearchFilters\AssetSearchFilter.cs" />
     <Compile Include="Endpoints\SearchFilters\ISearchFilter.cs" />
+    <Compile Include="Exceptions\FailedToDetectObjectException.cs" />
     <Compile Include="Exceptions\InvalidCategoryTypeException.cs" />
     <Compile Include="Exceptions\InvalidEndpointException.cs" />
     <Compile Include="Exceptions\InvalidStatusLabelTypeException.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Common\IRequestResponse.cs" />
     <Compile Include="Common\RequestResponse.cs" />
     <Compile Include="Common\ResponseCollection.cs" />
-    <Compile Include="Common\ResultsRow.cs" />
     <Compile Include="Endpoints\Models\Depreciation.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="JsonConverters\CustomFieldConverter.cs" />
