@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SnipeSharp.Endpoints
 {
-    public class EndPointManager<T> where T : CommonEndpointModel
+    public class EndPointManager<T> where T : CommonEndpointModel 
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
@@ -66,7 +66,7 @@ namespace SnipeSharp.Endpoints
             // TODO: Find better way to deal with objects that are not found
             T result;
             string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<T>(response, new DetectJsonObjectType()); // TODO This feels like fuckery
+            result = JsonConvert.DeserializeObject<T>(response); // TODO This feels like fuckery
             return result;
         }
 

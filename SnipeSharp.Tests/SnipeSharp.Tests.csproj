@@ -49,10 +49,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SnipeSharpTest.cs" />
+    <Compile Include="DeserializationDetection.cs" />
+    <Compile Include="Mocks\MockRequestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace SnipeSharp.Exceptions
 {
-    class NullApiTokenException : Exception
+    public class NullApiTokenException : Exception
     {
         public NullApiTokenException()
         {

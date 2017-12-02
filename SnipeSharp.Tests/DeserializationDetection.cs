@@ -8,7 +8,7 @@ using SnipeSharp.JsonConverters;
 namespace SnipeSharp.Tests
 {
     [TestClass]
-    public class SnipeSharpTest
+    public class DeserializationDetection
     {
         // Test object detection 
         [TestMethod]

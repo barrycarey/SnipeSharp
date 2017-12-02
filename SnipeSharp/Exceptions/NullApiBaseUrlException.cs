@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace SnipeSharp.Exceptions
 {
-    class NullApiBaseUrlException : Exception
+    public class NullApiBaseUrlException : Exception
     {
         public NullApiBaseUrlException()
         {

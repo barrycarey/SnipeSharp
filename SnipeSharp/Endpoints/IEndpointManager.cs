@@ -4,6 +4,7 @@ using SnipeSharp.Endpoints.SearchFilters;
 
 namespace SnipeSharp.Endpoints
 {
+    // TODO: Not using currently.  Needs to figure out how to use with generics
     public interface IEndpointManager<T>
     {
         IResponseCollection<T> GetAll();
