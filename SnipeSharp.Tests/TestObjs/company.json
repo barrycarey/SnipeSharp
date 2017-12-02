@@ -1,0 +1,23 @@
+﻿{
+  "id": 1,
+  "name": "Test Corp",
+  "image": null,
+  "created_at": {
+    "datetime": "2017-11-22 14:23:09",
+    "formatted": "2017-11-22 02:23 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-22 14:23:09",
+    "formatted": "2017-11-22 02:23 PM"
+  },
+  "assets_count": 0,
+  "licenses_count": 0,
+  "accessories_count": 0,
+  "consumables_count": 0,
+  "components_count": 0,
+  "users_count": 0,
+  "available_actions": {
+    "update": true,
+    "delete": true
+  }
+}

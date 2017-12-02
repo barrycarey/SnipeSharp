@@ -57,7 +57,17 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="TestObjs\asset.json" />
+    <None Include="TestObjs\category.json" />
+    <None Include="TestObjs\company.json" />
+    <None Include="TestObjs\accessory.json" />
+    <None Include="TestObjs\component.json" />
+    <None Include="TestObjs\consumable.json" />
+    <None Include="TestObjs\license.json" />
+    <None Include="TestObjs\location.json" />
+    <None Include="TestObjs\manufacturer.json" />
     <None Include="TestObjs\model.json" />
+    <None Include="TestObjs\statuslabel.json" />
+    <None Include="TestObjs\user.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SnipeSharp\SnipeSharp.csproj">

@@ -1,0 +1,39 @@
+﻿{
+  "id": 1,
+  "name": "HDD",
+  "image": null,
+  "serial_number": "asdfsdf",
+  "location": null,
+  "qty": 10,
+  "min_amt": 1,
+  "category": {
+    "id": 7,
+    "name": "Components Cat"
+  },
+  "order_number": "sdf",
+  "purchase_date": {
+    "date": "2017-11-22",
+    "formatted": "2017-11-22"
+  },
+  "purchase_cost": "50.00",
+  "remaining": 10,
+  "company": {
+    "id": 3,
+    "name": " test corp"
+  },
+  "created_at": {
+    "datetime": "2017-11-25 18:43:54",
+    "formatted": "2017-11-25 06:43 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 18:43:54",
+    "formatted": "2017-11-25 06:43 PM"
+  },
+  "user_can_checkout": 1,
+  "available_actions": {
+    "checkout": true,
+    "checkin": true,
+    "update": true,
+    "delete": true
+  }
+}

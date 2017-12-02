@@ -1,0 +1,47 @@
+﻿{
+  "id": 1,
+  "name": "Wipes",
+  "image": null,
+  "category": {
+    "id": 6,
+    "name": "Office Supplies"
+  },
+  "company": {
+    "id": 2,
+    "name": "Another Corp"
+  },
+  "item_no": "sdf",
+  "location": {
+    "id": 3,
+    "name": "Hallowell"
+  },
+  "manufacturer": {
+    "id": 36,
+    "name": "asdlfkjasdhjklf"
+  },
+  "min_amt": 1,
+  "model_number": "asdf",
+  "remaining": 10,
+  "order_number": "sdf",
+  "purchase_cost": "10.00",
+  "purchase_date": {
+    "date": "2017-11-28",
+    "formatted": "2017-11-28"
+  },
+  "qty": 10,
+  "created_at": {
+    "datetime": "2017-11-25 18:42:05",
+    "formatted": "2017-11-25 06:42 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 18:42:05",
+    "formatted": "2017-11-25 06:42 PM"
+  },
+  "user_can_checkout": true,
+  "available_actions": {
+    "checkout": true,
+    "checkin": true,
+    "update": true,
+    "delete": true
+  }
+}

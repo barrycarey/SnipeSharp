@@ -4,7 +4,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    class Accessory : CommonEndpointModel
+    public class Accessory : CommonEndpointModel
     {
         [JsonProperty("company")]
         [OptionalRequestHeader("company_id")]

@@ -3,7 +3,7 @@ using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
-    class License : CommonEndpointModel
+    public class License : CommonEndpointModel
     {
  
         [JsonProperty("company")]

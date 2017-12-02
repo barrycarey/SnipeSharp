@@ -1,0 +1,40 @@
+﻿{
+  "id": 2,
+  "name": "Maine",
+  "image": null,
+  "address": "asdfasdf",
+  "city": "asdfasdf",
+  "state": "asdfasdf",
+  "country": "US",
+  "zip": "12345",
+  "assigned_assets_count": 0,
+  "assets_count": 0,
+  "users_count": 0,
+  "created_at": {
+    "datetime": "2017-11-22 15:00:27",
+    "formatted": "2017-11-22 03:00 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 17:39:41",
+    "formatted": "2017-11-25 05:39 PM"
+  },
+  "parent": {
+    "id": 2,
+    "name": "Maine"
+  },
+  "manager": null,
+  "children": [
+    {
+      "id": 1,
+      "name": "Oakland ME"
+    },
+    {
+      "id": 2,
+      "name": "Maine"
+    }
+  ],
+  "available_actions": {
+    "update": true,
+    "delete": true
+  }
+}

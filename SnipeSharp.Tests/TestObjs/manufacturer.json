@@ -1,0 +1,25 @@
+﻿{
+  "id": 1,
+  "name": "Lenovo",
+  "url": "http://www.lenovo.com",
+  "image": null,
+  "support_url": "http://www.lenovo.com",
+  "support_phone": "12076800665",
+  "support_email": "support@lenovo.com",
+  "assets_count": 0,
+  "licenses_count": 0,
+  "consumables_count": 0,
+  "accessories_count": 0,
+  "created_at": {
+    "datetime": "2017-11-19 21:42:50",
+    "formatted": "2017-11-19 09:42 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-20 20:58:34",
+    "formatted": "2017-11-20 08:58 PM"
+  },
+  "available_actions": {
+    "update": true,
+    "delete": true
+  }
+}

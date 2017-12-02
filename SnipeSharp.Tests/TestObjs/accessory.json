@@ -1,0 +1,51 @@
+﻿{
+  "id": 1,
+  "name": "Keyboard",
+  "company": {
+    "id": 3,
+    "name": " test corp"
+  },
+  "manufacturer": {
+    "id": 1,
+    "name": "Lenovo"
+  },
+  "supplier": {
+    "id": 2,
+    "name": "Test Corp"
+  },
+  "model_number": "Lb102",
+  "category": {
+    "id": 3,
+    "name": "sdfg"
+  },
+  "location": {
+    "id": 1,
+    "name": "Oakland ME"
+  },
+  "notes": null,
+  "qty": 1,
+  "purchase_date": {
+    "date": "2017-11-16",
+    "formatted": "2017-11-16"
+  },
+  "purchase_cost": "10.00",
+  "order_number": "145654",
+  "min_qty": 1,
+  "remaining_qty": 1,
+  "image": null,
+  "created_at": {
+    "datetime": "2017-11-22 15:14:44",
+    "formatted": "2017-11-22 03:14 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 18:31:20",
+    "formatted": "2017-11-25 06:31 PM"
+  },
+  "available_actions": {
+    "checkout": true,
+    "checkin": false,
+    "update": true,
+    "delete": true
+  },
+  "user_can_checkout": true
+}

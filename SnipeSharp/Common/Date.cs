@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SnipeSharp.Common
 {
-    class Date
+    public class Date
     {
         [JsonProperty("formatted")]
         public string Formatted { get; set; }

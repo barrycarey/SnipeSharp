@@ -1,0 +1,15 @@
+﻿{
+  "id": 1,
+  "name": "Pending",
+  "type": "pending",
+  "color": null,
+  "show_in_nav": false,
+  "assets_count": 0,
+  "notes": "These assets are not yet ready to be deployed, usually because of configuration or waiting on parts.",
+  "created_at": null,
+  "updated_at": null,
+  "available_actions": {
+    "update": true,
+    "delete": true
+  }
+}

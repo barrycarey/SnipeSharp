@@ -1,0 +1,25 @@
+﻿{
+  "id": 1,
+  "name": "Laptop",
+  "image": null,
+  "category_type": "asset",
+  "eula": false,
+  "checkin_email": false,
+  "require_acceptance": false,
+  "assets_count": null,
+  "accessories_count": null,
+  "consumables_count": null,
+  "components_count": null,
+  "created_at": {
+    "datetime": "2017-11-19 21:42:37",
+    "formatted": "2017-11-19 09:42 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-19 21:42:37",
+    "formatted": "2017-11-19 09:42 PM"
+  },
+  "available_actions": {
+    "update": true,
+    "delete": true
+  }
+}

@@ -1,0 +1,50 @@
+﻿{
+  "id": 1,
+  "name": "Photoshop",
+  "company": {
+    "id": 6,
+    "name": " test corpf"
+  },
+  "manufacturer": {
+    "id": 1,
+    "name": "Lenovo"
+  },
+  "product_key": "31204987324098980",
+  "order_number": "45654654",
+  "purchase_order": "3216453df56",
+  "purchase_date": {
+    "date": "2017-11-21",
+    "formatted": "2017-11-21"
+  },
+  "purchase_cost": "100.00",
+  "notes": "asdfasdf",
+  "expiration_date": {
+    "date": "2017-11-22",
+    "formatted": "2017-11-22"
+  },
+  "seats": 1,
+  "free_seats_count": 0,
+  "license_name": "Test Person",
+  "license_email": "test@test.com",
+  "maintained": true,
+  "supplier": {
+    "id": 2,
+    "name": "Test Corp"
+  },
+  "created_at": {
+    "datetime": "2017-11-22 15:37:08",
+    "formatted": "2017-11-22 03:37 PM"
+  },
+  "updated_at": {
+    "datetime": "2017-11-25 18:33:33",
+    "formatted": "2017-11-25 06:33 PM"
+  },
+  "user_can_checkout": false,
+  "available_actions": {
+    "checkout": true,
+    "checkin": true,
+    "clone": true,
+    "update": true,
+    "delete": true
+  }
+}
