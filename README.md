@@ -79,7 +79,7 @@ Asset asset = new Asset() {
     AssetTag = "12345678",
     Model = snipe.ModelManager.Get("Lenovo"),
     Status = snipe.StatusLabelManager.Get("Ready to Deploy"),
-	Location = snipe.LocationManager.Get("Maine")
+    Location = snipe.LocationManager.Get("Maine")
 };
 
 snipe.AssetManager.Create(asset);
