@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace SnipeSharp.Common
 {
@@ -53,7 +54,7 @@ namespace SnipeSharp.Common
             CheckApiTokenAndUrl();
 
             string result = "";
-            HttpResponseMessage response = Client.GetAsync(path).Result;
+            HttpResponseMessage response = Task.Run(() => Client.GetAsync(path)).Result;
             if (response.IsSuccessStatusCode)
             {
                 result = response.Content.ReadAsStringAsync().Result;                
@@ -64,11 +65,13 @@ namespace SnipeSharp.Common
 
         public string Get(string path, ISearchFilter filter)
         {
+            // TODO: We can probably pass this through to the other Get method
             CheckApiTokenAndUrl();
             path = path + "?" + filter.GetQueryString();
             string result = "";
 
-            HttpResponseMessage response = Client.GetAsync(path).Result;
+            //HttpResponseMessage response = Client.GetAsync(path).Result;
+            HttpResponseMessage response = Task.Run(() => Client.GetAsync(path)).Result;
             if (response.IsSuccessStatusCode)
             {
                 result = response.Content.ReadAsStringAsync().Result;
@@ -82,7 +85,8 @@ namespace SnipeSharp.Common
 
             CheckApiTokenAndUrl();
 
-            HttpResponseMessage response = Client.PostAsync(path, BuildQueryString(item)).Result;
+            //HttpResponseMessage response = Client.PostAsync(path, BuildQueryString(item)).Result;
+            HttpResponseMessage response = Task.Run(() => Client.PostAsync(path, BuildQueryString(item))).Result;
             string result = null;
             if (response.IsSuccessStatusCode)
             {
