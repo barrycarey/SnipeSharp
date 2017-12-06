@@ -120,7 +120,7 @@ namespace SnipeSharp.JsonConverters
                 return item.ToObject<Accessory>();
             }
 
-            throw new FailedToDetectObjectException();
+            return item.ToObject<CommonEndpointModel>();
 
         }
     }
