@@ -5,25 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
+using RestSharp;
+using RestSharp.Authenticators;
+using SnipeSharp.Exceptions;
 
 namespace SnipeSharp.Common
 {
     class RequestManagerRestSharp : IRequestManager
     {
 
-        public ApiSettings _apiSettings { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ApiSettings _apiSettings { get; set; }
+        static RestClient Client;
 
         public RequestManagerRestSharp(ApiSettings apiSettings)
         {
+            _apiSettings = apiSettings;
+            Client = new RestClient();
+            Client.AddDefaultHeader("Accept", "application/json");
 
-        }        
-
-        public string BuildBody()
-        {
-            throw new NotImplementedException();
         }
 
-        public void CheckApiTokenAndUrl()
+        public string BuildBody()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +42,12 @@ namespace SnipeSharp.Common
 
         public string Get(string path)
         {
-            throw new NotImplementedException();
+            CheckApiTokenAndUrl();
+            RestRequest req = new RestRequest();
+            req.Resource = path;
+            IRestResponse res = Client.Execute(req);
+
+            return res.Content;
         }
 
         public string Get(string path, ISearchFilter filter)
@@ -50,12 +57,43 @@ namespace SnipeSharp.Common
 
         public string Post(string path, ICommonEndpointModel item)
         {
-            throw new NotImplementedException();
+            CheckApiTokenAndUrl();
+            RestRequest req = new RestRequest(Method.POST);
+            req.Resource = path;
+            req.AddParameter("name", "post location2");
+            req.AddParameter("city", "post city");
+            IRestResponse res = Client.Execute(req);
+
+            return null;
         }
 
         public string Put(string path, ICommonEndpointModel item)
         {
             throw new NotImplementedException();
+        }
+
+        // Since the Token and URL can be set anytime after the SnipApi object is created we need to check for these before sending a request
+        public void CheckApiTokenAndUrl()
+        {
+            if (_apiSettings.BaseUrl == null)
+            {
+                throw new NullApiBaseUrlException("No API Base Url Set.");
+            }
+
+            if (_apiSettings.ApiToken == null)
+            {
+                throw new NullApiTokenException("No API Token Set");
+            }
+
+            if (Client.BaseUrl == null)
+            {
+                Client.BaseUrl = _apiSettings.BaseUrl;
+            }
+
+            if (Client.Authenticator == null)
+            {
+                Client.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(_apiSettings.ApiToken, "Bearer");
+            }
         }
     }
 }
