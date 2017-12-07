@@ -1,7 +1,12 @@
 ﻿using Newtonsoft.Json;
 using SnipeSharp.Attributes;
 using SnipeSharp.Common;
+using SnipeSharp.Exceptions;
 using SnipeSharp.JsonConverters;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 /// <summary>
 /// Represents the the base of all objects we get back the API.  This is the building block for all more 
@@ -30,6 +35,42 @@ namespace SnipeSharp.Endpoints.Models
         public override string ToString()
         {
             return Id.ToString();
+        }
+
+        public virtual Dictionary<string, string> BuildQueryString()
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+
+            // TODO: Revisit this.  Look at loop in SearchFilter
+            foreach (PropertyInfo prop in this.GetType().GetProperties())
+            {
+                foreach (CustomAttributeData attData in prop.GetCustomAttributesData())
+                {
+
+                    string typeName = attData.Constructor.DeclaringType.Name;
+
+                    if (typeName == "RequiredRequestHeader" || typeName == "OptionalRequestHeader")
+                    {
+                        var propValue = prop.GetValue(this);
+
+                        // Abort in missing required headers
+                        if (propValue == null && typeName == "RequiredRequestHeader")
+                        {
+                            throw new RequiredValueIsNullException(string.Format("{0} Cannot Be Null", prop.Name));
+                        }
+
+                        if (propValue != null)
+                        {
+
+                            string attName = attData.ConstructorArguments.First().ToString().Replace("\"", "");
+
+                            values.Add(attName, propValue.ToString());
+                        }
+                    }
+                }
+            }
+
+            return values;
         }
     }
 }

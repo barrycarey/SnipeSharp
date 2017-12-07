@@ -4,6 +4,7 @@ using SnipeSharp.Common;
 using SnipeSharp.Endpoints.EndpointHelpers;
 using SnipeSharp.JsonConverters;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SnipeSharp.Endpoints.Models
 {
@@ -111,6 +112,14 @@ namespace SnipeSharp.Endpoints.Models
 
         public AssetCheckoutRequest CheckoutRequest { get; set; }
 
+        public override Dictionary<string, string> BuildQueryString()
+        {
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("Test", "test");
+
+            var baseTest = base.BuildQueryString();
+
+        }
 
     }
 }
