@@ -48,7 +48,7 @@ namespace SnipeSharp.Endpoints.Models
                 {
 
                     string typeName = attData.Constructor.DeclaringType.Name;
-
+                    Console.WriteLine(typeName);
                     if (typeName == "RequiredRequestHeader" || typeName == "OptionalRequestHeader")
                     {
                         var propValue = prop.GetValue(this);

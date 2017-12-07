@@ -12,6 +12,7 @@ namespace SnipeSharp.Endpoints.Models
     {
 
         [JsonProperty("name")]
+        [OptionalRequestHeader("name")]
         public new string Name { get; set; }
 
         [JsonProperty("asset_tag")]
@@ -27,6 +28,7 @@ namespace SnipeSharp.Endpoints.Models
         public Model Model { get; set; }
 
         [JsonProperty("model_number")]
+        [OptionalRequestHeader("model_number")]
         public string ModelNumber { get; set; }
 
         [JsonProperty("status_label")]
@@ -34,15 +36,19 @@ namespace SnipeSharp.Endpoints.Models
         public StatusLabel StatusLabel { get; set; }
 
         [JsonProperty("category")]
+        [OptionalRequestHeader("category_id")]
         public Category Category { get; set; }
 
         [JsonProperty("manufacturer")]
+        [OptionalRequestHeader("manufacturer_id")]
         public Manufacturer Manufacturer { get; set; }
 
         [JsonProperty("supplier")]
+        [OptionalRequestHeader("supplier_id")]
         public Supplier Supplier { get; set; }
 
         [JsonProperty("notes")]
+        [OptionalRequestHeader("notes")]
         public string Notes { get; set; }
 
         [JsonProperty("company")]
@@ -50,6 +56,7 @@ namespace SnipeSharp.Endpoints.Models
         public Company Company { get; set; }
 
         [JsonProperty("location")]
+        [OptionalRequestHeader("location_id")]
         public Location Location { get; set; }
 
         [JsonProperty("rtd_location")]
@@ -114,11 +121,11 @@ namespace SnipeSharp.Endpoints.Models
 
         public override Dictionary<string, string> BuildQueryString()
         {
-            Dictionary<string, string> test = new Dictionary<string, string>();
-            test.Add("Test", "test");
+            // TODO: Move Checkout logic here
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            var baseValues = base.BuildQueryString();
 
-            var baseTest = base.BuildQueryString();
-
+            return baseValues;
         }
 
     }

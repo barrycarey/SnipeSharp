@@ -31,7 +31,7 @@ namespace SnipeSharp
         public SnipeItApi()
         {            
             ApiSettings = new ApiSettings();
-            ReqManager = new RequestManager(ApiSettings);
+            ReqManager = new RequestManagerRestSharp(ApiSettings);
             AssetManager = new AssetEndpointManager<Asset>(ReqManager, "hardware");
             CompanyManager = new EndPointManager<Company>(ReqManager, "companies");
             LocationManager = new EndPointManager<Location>(ReqManager, "locations");
