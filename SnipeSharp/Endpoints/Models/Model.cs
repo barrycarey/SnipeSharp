@@ -37,6 +37,10 @@ namespace SnipeSharp.Endpoints.Models
         [OptionalRequestHeader("notes")]
         public string Notes { get; set; }
 
+        [JsonProperty("fieldset")]
+        [OptionalRequestHeader("fieldset_id")]
+        public int? FieldSet { get; set; }
+
         [JsonProperty("deleted_at")]
         public ResponseDate DeletedAt { get; set; }
 
