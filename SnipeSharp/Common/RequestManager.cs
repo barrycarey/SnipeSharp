@@ -82,7 +82,7 @@ namespace SnipeSharp.Common
 
         public string Post(string path, ICommonEndpointModel item)
         {
-
+            Console.WriteLine("Posting With Async");
             CheckApiTokenAndUrl();
 
             //HttpResponseMessage response = Client.PostAsync(path, BuildQueryString(item)).Result;
