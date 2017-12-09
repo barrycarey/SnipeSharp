@@ -58,7 +58,6 @@ namespace SnipeSharp.Common
         public string Post(string path, ICommonEndpointModel item)
         {
             CheckApiTokenAndUrl();
-            Console.WriteLine("Posting with RestSharp");
             RestRequest req = new RestRequest(Method.POST);
             req.Resource = path;
 

@@ -39,7 +39,7 @@ namespace SnipeSharp.Endpoints.Models
 
         [JsonProperty("fieldset")]
         [OptionalRequestHeader("fieldset_id")]
-        public int? FieldSet { get; set; }
+        public FieldSet FieldSet { get; set; }
 
         [JsonProperty("deleted_at")]
         public ResponseDate DeletedAt { get; set; }
