@@ -58,13 +58,20 @@ namespace SnipeSharp.Common
         public string Post(string path, ICommonEndpointModel item)
         {
             CheckApiTokenAndUrl();
+            Console.WriteLine("Posting with RestSharp");
             RestRequest req = new RestRequest(Method.POST);
             req.Resource = path;
-            req.AddParameter("name", "post location2");
-            req.AddParameter("city", "post city");
+
+            Dictionary<string, string> parameters = item.BuildQueryString();
+
+            foreach (KeyValuePair<string, string> kvp in parameters)
+            {
+                req.AddParameter(kvp.Key, kvp.Value);
+            }
+            // TODO: Add  error checkin
             IRestResponse res = Client.Execute(req);
 
-            return null;
+            return res.Content;
         }
 
         public string Put(string path, ICommonEndpointModel item)
