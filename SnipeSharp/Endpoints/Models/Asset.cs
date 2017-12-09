@@ -125,6 +125,14 @@ namespace SnipeSharp.Endpoints.Models
             Dictionary<string, string> values = new Dictionary<string, string>();
             var baseValues = base.BuildQueryString();
 
+            if (CustomFields != null)
+            {
+                foreach (KeyValuePair<string, string> kvp in CustomFields)
+                {
+                    baseValues.Add(kvp.Key, kvp.Value);
+                }
+            }
+
             return baseValues;
         }
 
