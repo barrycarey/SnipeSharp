@@ -1,4 +1,5 @@
 ﻿using SnipeSharp.Common;
+using System.Collections.Generic;
 
 namespace SnipeSharp.Endpoints.Models
 {
@@ -9,6 +10,7 @@ namespace SnipeSharp.Endpoints.Models
         string Name { get; set; }
         ResponseDate CreatedAt { get; set; }
         ResponseDate UpdatedAt { get; set; }
+        Dictionary<string, string> BuildQueryString(); // 
 
     }
 }
