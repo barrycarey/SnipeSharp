@@ -14,6 +14,5 @@ namespace SnipeSharp.Common
         string Delete(string path);
         string Checkin(string path); // TODO: Remove this once we cleanup checkin/checkout
         void CheckApiTokenAndUrl();
-        string BuildBody();
     }
 }
