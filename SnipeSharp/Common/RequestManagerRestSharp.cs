@@ -75,7 +75,21 @@ namespace SnipeSharp.Common
 
         public string Put(string path, ICommonEndpointModel item)
         {
-            throw new NotImplementedException();
+            // TODO: Make one method for post and put.
+            CheckApiTokenAndUrl();
+            RestRequest req = new RestRequest(Method.PUT);
+            req.Resource = path;
+
+            Dictionary<string, string> parameters = item.BuildQueryString();
+
+            foreach (KeyValuePair<string, string> kvp in parameters)
+            {
+                req.AddParameter(kvp.Key, kvp.Value);
+            }
+            // TODO: Add  error checkin
+            IRestResponse res = Client.Execute(req);
+
+            return res.Content;
         }
 
         // Since the Token and URL can be set anytime after the SnipApi object is created we need to check for these before sending a request
