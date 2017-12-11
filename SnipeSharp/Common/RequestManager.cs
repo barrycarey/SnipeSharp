@@ -28,11 +28,6 @@ namespace SnipeSharp.Common
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }        
 
-        public string BuildBody()
-        {
-            throw new NotImplementedException();
-        }
-
         public string Delete(string path)
         {
 

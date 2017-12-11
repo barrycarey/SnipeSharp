@@ -25,11 +25,6 @@ namespace SnipeSharp.Common
 
         }
 
-        public string BuildBody()
-        {
-            throw new NotImplementedException();
-        }
-
         public string Checkin(string path)
         {
             throw new NotImplementedException();

@@ -5,6 +5,7 @@ using SnipeSharp.Endpoints.EndpointHelpers;
 using SnipeSharp.JsonConverters;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace SnipeSharp.Endpoints.Models
 {
@@ -121,8 +122,33 @@ namespace SnipeSharp.Endpoints.Models
 
         public override Dictionary<string, string> BuildQueryString()
         {
-            // TODO: Move Checkout logic here
-            Dictionary<string, string> values = new Dictionary<string, string>();
+            // Process checkout request if one exists. 
+            if (CheckoutRequest != null)
+            {
+                Dictionary<string, string> values = new Dictionary<string, string>();
+
+                foreach (PropertyInfo prop in CheckoutRequest.GetType().GetProperties())
+                {
+                    var propValue = (prop.GetValue(CheckoutRequest) != null) ? prop.GetValue(CheckoutRequest).ToString() : null;
+
+                    if (propValue == null) continue;
+
+                    var result = prop.GetCustomAttributesData()
+                                     .Where(p => p.Constructor.DeclaringType.Name == "OptionalRequestHeader")
+                                     .FirstOrDefault();
+
+                    if (result == null) continue;
+
+                    string keyname = result.ConstructorArguments.First().ToString().Replace("\"", "").ToLower();
+
+                    values.Add(keyname, propValue);
+
+                }
+
+                return values;
+            }
+            
+
             var baseValues = base.BuildQueryString();
 
             if (CustomFields != null)
