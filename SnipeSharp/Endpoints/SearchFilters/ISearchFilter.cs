@@ -1,4 +1,6 @@
-﻿namespace SnipeSharp.Endpoints.SearchFilters
+﻿using System.Collections.Generic;
+
+namespace SnipeSharp.Endpoints.SearchFilters
 {
     public interface ISearchFilter
     {
@@ -7,6 +9,6 @@
         string Search { get; set; }
         string Sort { get; set; }
         string Order { get; set; }
-        string GetQueryString();
+        Dictionary<string, string> GetQueryString();
     }
 }

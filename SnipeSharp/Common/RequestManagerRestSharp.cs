@@ -52,7 +52,17 @@ namespace SnipeSharp.Common
 
         public string Get(string path, ISearchFilter filter)
         {
-            throw new NotImplementedException();
+            CheckApiTokenAndUrl();
+            RestRequest req = new RestRequest();
+            req.Resource = path;
+            foreach (KeyValuePair<string, string> kvp in filter.GetQueryString())
+            {
+                req.AddParameter(kvp.Key, kvp.Value);
+            }
+
+            IRestResponse res = Client.Execute(req);
+
+            return res.Content;
         }
 
         public string Post(string path, ICommonEndpointModel item)

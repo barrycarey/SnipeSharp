@@ -15,7 +15,7 @@ namespace SnipeSharp.Endpoints.SearchFilters
         public string Sort { get; set; }
         public string Order { get; set; }
 
-        public string GetQueryString()
+        public Dictionary<string, string> GetQueryString()
         {
             string queryString = "";
             Dictionary<string, string> urlParams = new Dictionary<string, string>();
@@ -44,6 +44,8 @@ namespace SnipeSharp.Endpoints.SearchFilters
 
             }
 
+            return urlParams;
+
             // TODO: URL encoding prevents filtres from working
             //queryString = HttpUtility.UrlEncode(
             //    string.Join("&",
@@ -55,7 +57,7 @@ namespace SnipeSharp.Endpoints.SearchFilters
                                 string.Format("{0}={1}", kvp.Key, kvp.Value)));
 
 
-            return queryString;
+            //return queryString;
         }
 
     }
