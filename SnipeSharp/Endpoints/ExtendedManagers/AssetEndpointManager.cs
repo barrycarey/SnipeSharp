@@ -22,7 +22,7 @@ namespace SnipeSharp.Endpoints.ExtendedManagers
         public IRequestResponse Checkin(ICommonEndpointModel item)
         {
             IRequestResponse result;
-            string response = _reqManager.Checkin(string.Format("{0}/{1}/checkin",_endPoint, item.Id));
+            string response = _reqManager.Post(string.Format("{0}/{1}/checkin",_endPoint, item.Id), item);
             result = JsonConvert.DeserializeObject<RequestResponse>(response);
             return result;
         }

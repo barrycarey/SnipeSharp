@@ -8,23 +8,10 @@ namespace SnipeSharp.Endpoints.EndpointHelpers
     public class AssetCheckoutRequest
     {
 
-        private string _checkoutToType;
-        [RequiredRequestHeader("checkout_to_type")]
-        public string CheckoutToType
-        {
-            get { return _checkoutToType; }
-            set
-            {
-                string[] validTypes = { "location", "asset", "user" };
-                if (validTypes.Contains(value.ToLower()))
-                {
-                    _checkoutToType = value;
-                } else
-                {
-                    throw new NotSupportedException(string.Format("{0} is not a valid asset checkout type. Use {1}", value, string.Join(", ", validTypes)));
-                }
-            }
-        }
+
+
+        [OptionalRequestHeader("checkout_to_type")]
+        public string CheckoutToType { get; set; }
 
         [OptionalRequestHeader("assigned_location")]
         public Location AssignedLocation { get; set; }

@@ -16,7 +16,7 @@ namespace SnipeSharp.Endpoints.Models
         [JsonProperty("type")]
         [RequiredRequestHeader("category_type")]
         public string Type
-        {
+        { // TODO: We should probably remove this and rely on the API to say it's invalid
             get { return _type; }
             set
             {
