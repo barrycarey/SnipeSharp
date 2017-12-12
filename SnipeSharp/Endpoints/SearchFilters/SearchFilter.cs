@@ -22,8 +22,8 @@ namespace SnipeSharp.Endpoints.SearchFilters
 
             foreach (PropertyInfo prop in GetType().GetProperties())
             {
-                // TODO: Calling GetValue twice might be dumb
-                var propValue = (prop.GetValue(this) != null) ? prop.GetValue(this).ToString() : null;
+                
+                var propValue = prop.GetValue(this)?.ToString();
 
                 if (propValue == null) continue;
 

@@ -8,8 +8,6 @@ namespace SnipeSharp.Endpoints.EndpointHelpers
     public class AssetCheckoutRequest
     {
 
-
-
         [OptionalRequestHeader("checkout_to_type")]
         public string CheckoutToType { get; set; }
 

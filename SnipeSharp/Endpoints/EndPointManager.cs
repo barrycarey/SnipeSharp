@@ -2,16 +2,24 @@
 using SnipeSharp.Common;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
-using SnipeSharp.JsonConverters;
 using System.Linq;
 
 namespace SnipeSharp.Endpoints
 {
+    /// <summary>
+    /// Generic class that can represent each of the different models returned by each endpoint. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class EndPointManager<T> where T : CommonEndpointModel 
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reqManager"></param>
+        /// <param name="endPoint"></param>
         public EndPointManager(IRequestManager reqManager, string endPoint)
         {
             _reqManager = reqManager;

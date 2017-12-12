@@ -120,16 +120,22 @@ namespace SnipeSharp.Endpoints.Models
 
         public AssetCheckoutRequest CheckoutRequest { get; set; }
 
+        /// <summary>
+        /// Loop through all properties of this model, looking for any tagged with our custom attributes that we need
+        /// to send as request headers
+        /// </summary>
+        /// <returns>Dictionary of header values</returns>
         public override Dictionary<string, string> BuildQueryString()
         {
             // Process checkout request if one exists. 
+            // On a checkout request we only need to return the headers from the checkout request itself, not he asset
             if (CheckoutRequest != null)
             {
                 Dictionary<string, string> values = new Dictionary<string, string>();
 
                 foreach (PropertyInfo prop in CheckoutRequest.GetType().GetProperties())
                 {
-                    var propValue = (prop.GetValue(CheckoutRequest) != null) ? prop.GetValue(CheckoutRequest).ToString() : null;
+                    var propValue = prop.GetValue(CheckoutRequest)?.ToString();
 
                     if (propValue == null) continue;
 
@@ -146,8 +152,7 @@ namespace SnipeSharp.Endpoints.Models
                 }
 
                 return values;
-            }
-            
+            }            
 
             var baseValues = base.BuildQueryString();
 

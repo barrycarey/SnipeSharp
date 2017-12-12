@@ -37,6 +37,11 @@ namespace SnipeSharp.Endpoints.Models
             return Id.ToString();
         }
 
+        /// <summary>
+        /// Loop through all properties of this model, looking for any tagged with our custom attributes that we need
+        /// to send as request headers
+        /// </summary>
+        /// <returns>Dictionary of header values</returns>
         public virtual Dictionary<string, string> BuildQueryString()
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
@@ -51,7 +56,7 @@ namespace SnipeSharp.Endpoints.Models
 
                     if (typeName == "RequiredRequestHeader" || typeName == "OptionalRequestHeader")
                     {
-                        var propValue = prop.GetValue(this);
+                        var propValue = prop.GetValue(this)?.ToString();
 
                         // Abort in missing required headers
                         if (propValue == null && typeName == "RequiredRequestHeader")
@@ -64,7 +69,7 @@ namespace SnipeSharp.Endpoints.Models
 
                             string attName = attData.ConstructorArguments.First().ToString().Replace("\"", "");
 
-                            values.Add(attName, propValue.ToString());
+                            values.Add(attName, propValue);
                         }
                     }
                 }

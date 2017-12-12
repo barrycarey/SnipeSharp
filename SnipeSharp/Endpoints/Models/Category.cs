@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SnipeSharp.Common;
 using SnipeSharp.Attributes;
 using System.Linq;
 using SnipeSharp.Exceptions;
