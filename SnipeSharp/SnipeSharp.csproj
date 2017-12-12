@@ -116,6 +116,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="SnipeSharp.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="build\" />
