@@ -1,19 +1,39 @@
 ﻿using SnipeSharp.Attributes;
 using SnipeSharp.Endpoints.Models;
+using System;
+using System.Linq;
 
 namespace SnipeSharp.Endpoints.EndpointHelpers
 {
     public class AssetCheckoutRequest
     {
 
-        [OptionalRequestHeader("user_id")]
-        public User User { get; set; }
+        private string _checkoutToType;
+        [RequiredRequestHeader("checkout_to_type")]
+        public string CheckoutToType
+        {
+            get { return _checkoutToType; }
+            set
+            {
+                string[] validTypes = { "location", "asset", "user" };
+                if (validTypes.Contains(value.ToLower()))
+                {
+                    _checkoutToType = value;
+                } else
+                {
+                    throw new NotSupportedException(string.Format("{0} is not a valid asset checkout type. Use {1}", value, string.Join(", ", validTypes)));
+                }
+            }
+        }
 
-        [OptionalRequestHeader("asset_id")]
-        public int? AssetId { get; set; }
+        [OptionalRequestHeader("assigned_location")]
+        public Location AssignedLocation { get; set; }
 
-        [OptionalRequestHeader("location_id")]
-        public Location Location { get; set; }
+        [OptionalRequestHeader("assigned_asset")]
+        public Asset AssignedAsset { get; set; }
+
+        [OptionalRequestHeader("assigned_user")]
+        public User AssignedUser { get; set; }
 
         [OptionalRequestHeader("note")]
         public string Note { get; set; }
