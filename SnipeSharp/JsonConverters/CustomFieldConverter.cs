@@ -18,7 +18,6 @@ namespace SnipeSharp.JsonConverters
             // TODO: There's probably a hell of a lot that can go wrong here
             JToken token = JToken.Load(reader);
 
-            //List<AssetCustomField> result = new List<AssetCustomField>();
             Dictionary<string, string> result = new Dictionary<string, string>();
 
             foreach (JToken subToken in token)
@@ -27,14 +26,7 @@ namespace SnipeSharp.JsonConverters
                 foreach (JToken child in children)
                 {
                     result.Add(child.Value<string>("field"), child.Value<string>("value"));
-                    //result.Add(new AssetCustomField()
-                    //{
-                    //    Field = child.Value<string>("field"),
-                    //    Value = child.Value<string>("value")
-                    //});
-
                 }
-
             }
             
             return result;

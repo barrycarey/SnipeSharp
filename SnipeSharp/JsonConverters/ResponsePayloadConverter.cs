@@ -100,21 +100,21 @@ namespace SnipeSharp.JsonConverters
             }
 
             // Consumable
-            // TODO: This isn't grate since I think it's based on a type in the API
+            // TODO: This isn't great since I think it's based on a type in the API
             if (dictionary.ContainsKey("min_amt") && dictionary.ContainsKey("model_number"))
             {
                 return item.ToObject<Consumable>();
             }
 
             // Component
-            // TODO: This isn't grate since I think it's based on a type in the API
+            // TODO: This isn't great since I think it's based on a type in the API
             if (dictionary.ContainsKey("min_amt") && dictionary.ContainsKey("serial_number"))
             {
                 return item.ToObject<Component>();
             }
 
             // Accessories
-            // TODO: This isn't grate since I think it's based on a type in the API
+            // TODO: This isn't great since I think it's based on a type in the API
             if (dictionary.ContainsKey("min_qty") && dictionary.ContainsKey("remaining_qty"))
             {
                 return item.ToObject<Accessory>();

@@ -46,18 +46,6 @@ namespace SnipeSharp.Endpoints.SearchFilters
 
             return urlParams;
 
-            // TODO: URL encoding prevents filtres from working
-            //queryString = HttpUtility.UrlEncode(
-            //    string.Join("&",
-            //       urlParams.Select(kvp =>
-            //            string.Format("{0}={1}", kvp.Key, kvp.Value))));
-
-            queryString = string.Join("&",
-                            urlParams.Select(kvp =>
-                                string.Format("{0}={1}", kvp.Key, kvp.Value)));
-
-
-            //return queryString;
         }
 
     }

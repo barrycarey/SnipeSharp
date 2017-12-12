@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace SnipeSharp.Common
 {
 
-    // TODO: Do async properly.  This is deadlocking and useless right now
     public class RequestManager : IRequestManager
     {
 
@@ -60,7 +59,7 @@ namespace SnipeSharp.Common
 
         public string Get(string path, ISearchFilter filter)
         {
-            // TODO: We can probably pass this through to the other Get method
+
             CheckApiTokenAndUrl();
             path = path + "?" + filter.GetQueryString();
             string result = "";
@@ -106,7 +105,7 @@ namespace SnipeSharp.Common
             return result;
         }
 
-        // TODO: This is a temp fix untl I can find a better way to deal with Checkin/Checkout
+
         public string Checkin(string path)
         {
             HttpResponseMessage response = Client.PostAsync(path, null).Result;
@@ -125,8 +124,7 @@ namespace SnipeSharp.Common
             Dictionary<string, string> values = new Dictionary<string, string>();
 
             // If it's an asset check if there's a checkout request.  Also process custom fields
-            // TODO: Not sure I like doing it like this.  Maybe add method to Asset
-            // TODO: I REALLY don't like doing it this way
+
             Asset asset = item as Asset;
             if (asset != null)
             {
@@ -164,7 +162,6 @@ namespace SnipeSharp.Common
             }
             
 
-            // TODO: Revisit this.  Look at loop in SearchFilter
             foreach (PropertyInfo prop in item.GetType().GetProperties())
             {
                 foreach (CustomAttributeData attData in prop.GetCustomAttributesData())

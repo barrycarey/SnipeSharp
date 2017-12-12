@@ -35,7 +35,6 @@ namespace SnipeSharp.Endpoints
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        // TODO: This should probabe be named different since it returns a collection instead of a single item
         public ResponseCollection<T> FindAll(ISearchFilter filter)
         {
             string response = _reqManager.Get(_endPoint, filter);
@@ -60,13 +59,12 @@ namespace SnipeSharp.Endpoints
         /// </summary>
         /// <param name="id">ID of the object to find</param>
         /// <returns></returns>
-        // TODO: See if we get a concrete object or Iface back from this
         public T Get(int id)
         {
             // TODO: Find better way to deal with objects that are not found
             T result;
             string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<T>(response); // TODO This feels like fuckery
+            result = JsonConvert.DeserializeObject<T>(response); 
             return result;
         }
 
@@ -76,7 +74,6 @@ namespace SnipeSharp.Endpoints
         /// <param name="name">The name of the object we want to find</param>
         /// <returns></returns>
         /// 
-        // TODO: Once we make result row generic make this generic 
         public T Get(string name)
         {
             T result;
@@ -123,7 +120,7 @@ namespace SnipeSharp.Endpoints
             return Delete((int)toDelete.Id);
         }
 
-        // TODO: This is specific to assets.  We should probably extend this class and make one specific for assets. 
+        
 
     }
 }

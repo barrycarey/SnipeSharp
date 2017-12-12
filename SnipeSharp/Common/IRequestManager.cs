@@ -12,7 +12,6 @@ namespace SnipeSharp.Common
         string Get(string path, ISearchFilter filter);
         string Post(string path, ICommonEndpointModel item);
         string Delete(string path);
-        string Checkin(string path); // TODO: Remove this once we cleanup checkin/checkout
         void CheckApiTokenAndUrl();
     }
 }

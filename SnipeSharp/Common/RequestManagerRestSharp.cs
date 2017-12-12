@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
 using RestSharp;
@@ -25,15 +22,10 @@ namespace SnipeSharp.Common
 
         }
 
-        public string Checkin(string path)
-        {
-            throw new NotImplementedException();
-        }
-
         public string Delete(string path)
         {
             CheckApiTokenAndUrl();
-            RestRequest req = new RestRequest(Method.DELETE);
+            RestRequest req = new RestRequest(Method.DELETE); 
             req.Resource = path;
             IRestResponse res = Client.Execute(req);
 
@@ -77,7 +69,7 @@ namespace SnipeSharp.Common
             {
                 req.AddParameter(kvp.Key, kvp.Value);
             }
-            // TODO: Add  error checkin
+            // TODO: Add error checking
             IRestResponse res = Client.Execute(req);
 
             return res.Content;
@@ -96,7 +88,7 @@ namespace SnipeSharp.Common
             {
                 req.AddParameter(kvp.Key, kvp.Value);
             }
-            // TODO: Add  error checkin
+            // TODO: Add  error checking
             IRestResponse res = Client.Execute(req);
 
             return res.Content;
