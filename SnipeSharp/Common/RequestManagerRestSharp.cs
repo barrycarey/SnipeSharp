@@ -32,7 +32,12 @@ namespace SnipeSharp.Common
 
         public string Delete(string path)
         {
-            throw new NotImplementedException();
+            CheckApiTokenAndUrl();
+            RestRequest req = new RestRequest(Method.DELETE);
+            req.Resource = path;
+            IRestResponse res = Client.Execute(req);
+
+            return res.Content;
         }
 
         public string Get(string path)
