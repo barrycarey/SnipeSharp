@@ -10,8 +10,12 @@
     <projectUrl>https://github.com/barrycarey/SnipeSharp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+    <summary>A .Net API wrapper for Snipe IT that allows you to manage the full Snipe IT API within a .NET project. </summary>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>SnipeIT Snipe IT</tags>
   </metadata>
+  <files>
+    <file src="docs\nuget\readme.md" target="" />
+  </files>
 </package>
