@@ -25,7 +25,7 @@ nuget install SnipeSharp
 ## Usage
 
 ```csharp
-SnipeItApi snip = new SnipeItApi();
+SnipeItApi snipe = new SnipeItApi();
 snipe.ApiSettings.ApiToken = "XXXXXXXX"
 snipe.ApiSettings.BaseUrl = new Uri("http://xxxxx.com/api/v1")
 ```
