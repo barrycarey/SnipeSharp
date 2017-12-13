@@ -36,7 +36,8 @@ namespace SnipeSharp.Common
         {
             CheckApiTokenAndUrl();
             RestRequest req = new RestRequest();
-            req.Resource = path;
+            req.Resource = path; // Test
+            req.Timeout = 200000;
             IRestResponse res = Client.Execute(req);
 
             return res.Content;
@@ -47,6 +48,7 @@ namespace SnipeSharp.Common
             CheckApiTokenAndUrl();
             RestRequest req = new RestRequest();
             req.Resource = path;
+            req.Timeout = 200000; // TODO: We should probably breakup large requests
             foreach (KeyValuePair<string, string> kvp in filter.GetQueryString())
             {
                 req.AddParameter(kvp.Key, kvp.Value);
