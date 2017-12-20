@@ -53,7 +53,7 @@ namespace SnipeSharp.Endpoints.Models
         public string Notes { get; set; }
 
         [JsonProperty("company")]
-        [OptionalRequestHeader("company")]
+        [OptionalRequestHeader("company_id")]
         public Company Company { get; set; }
 
         [JsonProperty("location")]
