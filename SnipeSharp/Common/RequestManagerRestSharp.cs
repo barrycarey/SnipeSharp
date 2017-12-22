@@ -5,6 +5,7 @@ using SnipeSharp.Endpoints.SearchFilters;
 using RestSharp;
 using RestSharp.Authenticators;
 using SnipeSharp.Exceptions;
+using Newtonsoft.Json;
 
 namespace SnipeSharp.Common
 {

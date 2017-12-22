@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    // TODO: Make constructor that forces required fields
     public class Asset : CommonEndpointModel
     {
 

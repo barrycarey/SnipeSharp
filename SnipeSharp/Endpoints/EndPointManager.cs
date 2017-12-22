@@ -2,6 +2,7 @@
 using SnipeSharp.Common;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SnipeSharp.Endpoints
@@ -32,9 +33,44 @@ namespace SnipeSharp.Endpoints
         /// <returns></returns>
         public ResponseCollection<T> GetAll()
         {
-            string response = _reqManager.Get(_endPoint);
-            ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
-            return results;
+
+            // Figure out how many rows the results will return so we can splitup requests
+            ResponseCollection<T> count = FindAll(new SearchFilter() { Limit = 1 });
+
+            // If there are more than 1000 assets split up the requests to avoid timeouts
+            if (count.Total < 1000)
+            {
+                string response = _reqManager.Get(_endPoint);
+                ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
+                return results;
+
+            } else
+            {
+                ResponseCollection<T> finalResults = new ResponseCollection<T>() {
+
+                    Total = count.Total,
+                    Rows = new List<T>()
+                };
+
+                int offset = 0;
+
+                while (finalResults.Rows.Count < count.Total)
+                {
+                    var batch = FindAll(new SearchFilter()
+                    {
+                        Limit = 1000,
+                        Offset = offset
+                    });
+
+                    finalResults.Rows.AddRange(batch.Rows);
+
+                    offset = offset + 1000;
+                }
+
+                return finalResults;
+            }
+
+            
         }
 
 
