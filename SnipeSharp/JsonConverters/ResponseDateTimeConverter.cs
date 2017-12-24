@@ -39,7 +39,7 @@ namespace SnipeSharp.JsonConverters
             {
                 return new ResponseDate()
                 {
-                    Date = token.ToObject<string>()
+                    DateTime = token.ToObject<string>()
                 };
             }
 
