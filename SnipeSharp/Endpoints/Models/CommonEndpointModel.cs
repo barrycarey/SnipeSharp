@@ -3,7 +3,6 @@ using SnipeSharp.Attributes;
 using SnipeSharp.Common;
 using SnipeSharp.Exceptions;
 using SnipeSharp.JsonConverters;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;

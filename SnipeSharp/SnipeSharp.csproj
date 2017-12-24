@@ -67,6 +67,7 @@
     <Compile Include="Endpoints\ExtendedManagers\UserEndpointManager.cs" />
     <Compile Include="Endpoints\Models\Component.cs" />
     <Compile Include="Endpoints\Models\Consumable.cs" />
+    <Compile Include="Endpoints\Models\CustomField.cs" />
     <Compile Include="Endpoints\Models\Department.cs" />
     <Compile Include="Endpoints\Models\FieldSet.cs" />
     <Compile Include="Endpoints\Models\Supplier.cs" />
