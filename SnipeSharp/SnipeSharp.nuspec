@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <summary>A .Net API wrapper for Snipe IT that allows you to manage the full Snipe IT API within a .NET project. </summary>
-    <releaseNotes>Initial Release</releaseNotes>
+    <releaseNotes>Added support for FieldSet endpoint</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>SnipeIT Snipe IT</tags>
   </metadata>

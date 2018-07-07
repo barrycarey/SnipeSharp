@@ -122,7 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="build\" />
+    <Folder Include="nuget\" />
     <Folder Include="tests\" />
+    <Folder Include="tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

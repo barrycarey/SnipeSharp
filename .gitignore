@@ -263,3 +263,5 @@ __pycache__/
 *.pyc
 /SnipeSharp.Demo
 /SnipeSharp/nuget.exe
+/SnipeSharp/tools/nuget.exe
+/SnipeSharp/tools/NugetPack.bat
