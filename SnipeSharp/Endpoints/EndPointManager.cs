@@ -82,13 +82,14 @@ namespace SnipeSharp.Endpoints
             var response = _reqManager.Get(_endPoint, filter);
             var results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
 
+            var baseOffset = filter.Offset == null ? 0 : filter.Offset;
             // If there is no limit and there are more total than retrieved
-            if(filter.Limit == null && results.Rows.Count < results.Total)
+            if(filter.Limit == null && baseOffset + results.Rows.Count < results.Total)
             {
                 filter.Limit = 1000;
-                filter.Offset = (filter.Offset == null ? 0 : filter.Offset) + results.Rows.Count;
+                filter.Offset = baseOffset + results.Rows.Count;
                 
-                while (results.Rows.Count < results.Total)
+                while (baseOffset + results.Rows.Count < results.Total)
                 {
                     response = _reqManager.Get(_endPoint, filter);
                     var batch = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
