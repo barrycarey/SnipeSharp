@@ -40,9 +40,7 @@ namespace SnipeSharp.Endpoints
             // If there are more than 1000 assets split up the requests to avoid timeouts
             if (count.Total < 1000)
             {
-                string response = _reqManager.Get(_endPoint);
-                ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
-                return results;
+                return FindAll(new SearchFilter { Limit = (int) count.Total });
 
             } else
             {
