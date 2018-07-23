@@ -4,6 +4,8 @@ using SnipeSharp.Exceptions;
 using SnipeSharp.Common;
 using System.Reflection;
 using System.Net.Http;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace SnipeSharp.Tests
 {
@@ -31,37 +33,36 @@ namespace SnipeSharp.Tests
         [TestMethod]
         public void CheckApiTokenAndUrl_SetHttpClientBaseAddress_SetCorrectly()
         {
-            SnipeItApi snipe = new SnipeItApi();
-            Uri url = new Uri("http://google.com");
+            var snipe = new SnipeItApi();
+            var url = new Uri("http://google.com");
             snipe.ApiSettings.ApiToken = "xxxxx";
             snipe.ApiSettings.BaseUrl = url;
             snipe.ReqManager.CheckApiTokenAndUrl();
 
             // Get the Static property value
-            Type type = typeof(RequestManager);
-            FieldInfo prop = type.GetField("Client", BindingFlags.NonPublic | BindingFlags.Static);
-            HttpClient value = prop.GetValue(snipe.ReqManager) as HttpClient;
+            var prop = typeof(RequestManagerRestSharp).GetField("Client", BindingFlags.NonPublic | BindingFlags.Static);
+            var client = prop.GetValue(snipe.ReqManager) as RestClient;
 
-            Assert.AreEqual(url, value.BaseAddress);
+            Assert.AreEqual<Uri>(url, client.BaseUrl);
         }
 
         [TestMethod]
         public void CheckApiTokenAndUrl_SetAuthorizationHeader_SetCorrectly()
         {
-            SnipeItApi snipe = new SnipeItApi();
-            Uri url = new Uri("http://google.com");
+            var snipe = new SnipeItApi();
+            var url = new Uri("http://google.com");
             snipe.ApiSettings.ApiToken = "xxxxx";
             snipe.ApiSettings.BaseUrl = url;
             snipe.ReqManager.CheckApiTokenAndUrl();
 
             // Get the Static property value
-            Type type = typeof(RequestManager);
-            FieldInfo prop = type.GetField("Client", BindingFlags.NonPublic | BindingFlags.Static);
-            HttpClient value = prop.GetValue(snipe.ReqManager) as HttpClient;
+            var prop = typeof(RequestManagerRestSharp).GetField("Client", BindingFlags.NonPublic | BindingFlags.Static);
+            var client = prop.GetValue(snipe.ReqManager) as RestClient;
 
-            Assert.IsTrue(value.DefaultRequestHeaders.Authorization.Scheme == "Bearer" &&
-                value.DefaultRequestHeaders.Authorization.Parameter == "xxxxx");
-
+            // NOTE: This test depends on the internal implementation of RestSharp not changing. Check there if you update that dependency!
+            var value = new PrivateObject(client.Authenticator).GetField("authorizationValue") as string;
+            
+            Assert.AreEqual<string>("Bearer xxxxx", value);
         }
     }
 }
