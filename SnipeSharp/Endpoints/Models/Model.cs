@@ -4,6 +4,7 @@ using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("AssetModel not found")]
     public class Model : CommonEndpointModel
     {
 

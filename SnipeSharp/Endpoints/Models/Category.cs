@@ -5,6 +5,7 @@ using SnipeSharp.Exceptions;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Category not found")]
     public class Category : CommonEndpointModel
     {
         [JsonProperty("image")]

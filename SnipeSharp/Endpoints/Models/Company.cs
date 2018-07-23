@@ -1,8 +1,10 @@
-﻿using SnipeSharp.Common;
+﻿using SnipeSharp.Attributes;
+using SnipeSharp.Common;
 using Newtonsoft.Json;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Company not found")]
     public class Company : CommonEndpointModel
     {
         [JsonProperty("image")]

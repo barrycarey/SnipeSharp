@@ -5,7 +5,7 @@ using SnipeSharp.Common;
 namespace SnipeSharp.Endpoints.Models
 {
 
-
+    [EndpointObjectNotFoundMessage("Manufacturer not found")]
     public class Manufacturer : CommonEndpointModel
     {
         [JsonProperty("url")]

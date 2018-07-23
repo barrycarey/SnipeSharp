@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Attributes;
 using SnipeSharp.Common;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,6 +17,7 @@ namespace SnipeSharp.Endpoints
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
+        protected string _notFoundMessage;
 
         /// <summary>
         /// 
@@ -25,6 +28,11 @@ namespace SnipeSharp.Endpoints
         {
             _reqManager = reqManager;
             _endPoint = endPoint;
+            var attribute = typeof(T).GetCustomAttributes(typeof(EndpointObjectNotFoundMessage), true).FirstOrDefault() as EndpointObjectNotFoundMessage;
+            if(attribute != null)
+            {
+                _notFoundMessage = attribute.Message;
+            }
         }
 
         /// <summary>
@@ -122,11 +130,14 @@ namespace SnipeSharp.Endpoints
         /// <returns></returns>
         public T Get(int id)
         {
-            // TODO: Find better way to deal with objects that are not found
-            T result;
-            string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<T>(response); 
-            return result;
+            var response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
+            // Parse the response as a message to see if there's a result.
+            var message = JsonConvert.DeserializeObject<RequestResponse>(response);
+            // If there isn't a result, return default(T).
+            if(message.Status == "error" && message.Messages.ContainsKey("general") && message.Messages["general"] == _notFoundMessage)
+                return default(T);
+            // We do have one, so re-deserialize the response as the type we want.
+            return JsonConvert.DeserializeObject<T>(response);
         }
 
         /// <summary>

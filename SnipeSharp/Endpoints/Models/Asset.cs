@@ -10,6 +10,7 @@ using System.Reflection;
 namespace SnipeSharp.Endpoints.Models
 {
     // TODO: Make constructor that forces required fields
+    [EndpointObjectNotFoundMessage("Asset not found")]
     public class Asset : CommonEndpointModel
     {
 
