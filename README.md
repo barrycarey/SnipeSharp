@@ -8,7 +8,7 @@ The goal of this project is to give easy access to all endpoints of the Snipe IT
 
 This project was built to support my own needs.  As such features are being worked on in the order I personally need them.  However, if you want a feature or find a bug please open an issue. 
 
-Final note, this is my first C# project of this scale.  I'm not up on all the best practices.  If you see something I've done that should be done differently, I encourge you to let me know. 
+Final note, this is my first C# project of this scale.  I'm not up on all the best practices.  If you see something I've done that should be done differently, I encourage you to let me know. 
 
 ### Prerequisites
 
@@ -112,13 +112,13 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](./SnipeSharp/tags).
 
 ## Authors
 
 * **Matthew 'Barry' Carey** - *Initial work* - [BarryCarey](https://github.com/barrycarey)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](./SnipeSharp/contributors) who participated in this project.
 
 ## License
 
