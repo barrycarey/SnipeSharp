@@ -7,11 +7,6 @@ namespace SnipeSharp.Endpoints.Models
 {
     public class User : CommonEndpointModel
     {
-
-        [JsonProperty("name")]
-        [OptionalRequestHeader("name")]
-        public new string Name { get; set; }
-
         [JsonProperty("accessories_count")]
         public long? AccessoriesCount { get; set; }
 
