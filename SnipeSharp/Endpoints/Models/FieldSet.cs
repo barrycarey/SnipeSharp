@@ -1,8 +1,10 @@
-﻿using SnipeSharp.Common;
+﻿using SnipeSharp.Attributes;
+using SnipeSharp.Common;
 using Newtonsoft.Json;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Fieldset does not exist")]
     public class FieldSet : CommonEndpointModel
     {
         [JsonProperty("fields")]

@@ -4,6 +4,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Supplier not found")]
     public class Supplier : CommonEndpointModel
     {
         [JsonProperty("name")]

@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Attributes;
 using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("License not found")]
     public class License : CommonEndpointModel
     {
  

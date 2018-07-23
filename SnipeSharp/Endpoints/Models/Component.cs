@@ -4,6 +4,7 @@ using SnipeSharp.Attributes;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Component not found")]
     public class Component : CommonEndpointModel
     {
         [JsonProperty("serial_number")]

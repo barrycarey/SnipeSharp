@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using SnipeSharp.Attributes;
 using SnipeSharp.Common;
 using SnipeSharp.Endpoints.Models;
 using SnipeSharp.Endpoints.SearchFilters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,6 +17,7 @@ namespace SnipeSharp.Endpoints
     {
         protected IRequestManager _reqManager;
         protected string _endPoint;
+        protected string _notFoundMessage;
 
         /// <summary>
         /// 
@@ -25,6 +28,11 @@ namespace SnipeSharp.Endpoints
         {
             _reqManager = reqManager;
             _endPoint = endPoint;
+            var attribute = typeof(T).GetCustomAttributes(typeof(EndpointObjectNotFoundMessage), true).FirstOrDefault() as EndpointObjectNotFoundMessage;
+            if(attribute != null)
+            {
+                _notFoundMessage = attribute.Message;
+            }
         }
 
         /// <summary>
@@ -40,9 +48,7 @@ namespace SnipeSharp.Endpoints
             // If there are more than 1000 assets split up the requests to avoid timeouts
             if (count.Total < 1000)
             {
-                string response = _reqManager.Get(_endPoint);
-                ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
-                return results;
+                return FindAll(new SearchFilter { Limit = (int) count.Total });
 
             } else
             {
@@ -81,8 +87,27 @@ namespace SnipeSharp.Endpoints
         /// <returns></returns>
         public ResponseCollection<T> FindAll(ISearchFilter filter)
         {
-            string response = _reqManager.Get(_endPoint, filter);
-            ResponseCollection<T> results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
+            var response = _reqManager.Get(_endPoint, filter);
+            var results = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
+
+            var baseOffset = filter.Offset == null ? 0 : filter.Offset;
+            // If there is no limit and there are more total than retrieved
+            if(filter.Limit == null && baseOffset + results.Rows.Count < results.Total)
+            {
+                filter.Limit = 1000;
+                filter.Offset = baseOffset + results.Rows.Count;
+                
+                while (baseOffset + results.Rows.Count < results.Total)
+                {
+                    response = _reqManager.Get(_endPoint, filter);
+                    var batch = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
+
+                    results.Rows.AddRange(batch.Rows);
+
+                    filter.Offset += 1000;
+                }
+            }
+
             return results;
         }
 
@@ -95,7 +120,7 @@ namespace SnipeSharp.Endpoints
         {
             string response = _reqManager.Get(_endPoint, filter);
             ResponseCollection<T> result = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
-            return (result.Rows != null) ? result.Rows[0] : default(T);
+            return (result.Rows != null && result.Rows.Count > 0) ? result.Rows[0] : default(T);
         }
 
         /// <summary>
@@ -105,11 +130,14 @@ namespace SnipeSharp.Endpoints
         /// <returns></returns>
         public T Get(int id)
         {
-            // TODO: Find better way to deal with objects that are not found
-            T result;
-            string response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
-            result = JsonConvert.DeserializeObject<T>(response); 
-            return result;
+            var response = _reqManager.Get(string.Format("{0}/{1}", _endPoint, id.ToString()));
+            // Parse the response as a message to see if there's a result.
+            var message = JsonConvert.DeserializeObject<RequestResponse>(response);
+            // If there isn't a result, return default(T).
+            if(message.Status == "error" && message.Messages.ContainsKey("general") && message.Messages["general"] == _notFoundMessage)
+                return default(T);
+            // We do have one, so re-deserialize the response as the type we want.
+            return JsonConvert.DeserializeObject<T>(response);
         }
 
         /// <summary>

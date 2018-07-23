@@ -4,6 +4,7 @@ using SnipeSharp.Common;
 
 namespace SnipeSharp.Endpoints.Models
 {
+    [EndpointObjectNotFoundMessage("Consumable not found")]
     public class Consumable : CommonEndpointModel
     {
         [JsonProperty("category")]

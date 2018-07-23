@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\EndpointObjectNotFoundMessage.cs" />
     <Compile Include="Attributes\FilterParamName.cs" />
     <Compile Include="Attributes\OptionalRequestHeader.cs" />
     <Compile Include="Attributes\RequiredRequestHeader.cs" />
