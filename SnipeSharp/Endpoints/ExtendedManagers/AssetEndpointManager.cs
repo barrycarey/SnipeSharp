@@ -27,5 +27,18 @@ namespace SnipeSharp.Endpoints.ExtendedManagers
             return result;
         }
 
+        public Asset GetByAssetTag(string assetTag)
+        {
+            var response = _reqManager.Get(string.Format("{0}/bytag/{1}", _endPoint, assetTag));
+            var result = JsonConvert.DeserializeObject<Asset>(response);
+            return result;
+        }
+
+        public Asset GetBySerialNumber(string serialNumber)
+        {
+            var response = _reqManager.Get(string.Format("{0}/byserial/{1}", _endPoint, serialNumber));
+            var result = JsonConvert.DeserializeObject<Asset>(response);
+            return result;
+        }
     }
 }
