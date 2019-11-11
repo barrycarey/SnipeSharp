@@ -105,7 +105,13 @@ namespace SnipeSharp.Endpoints.Models
         public object Zip { get; set; }
 
         [RequiredRequestHeader("password")]
+        [JsonProperty("password")]
+
         public string Password { get; set; }
+
+        [RequiredRequestHeader("password_confirmation")]
+        [JsonProperty("password_confirmation")]
+        public string PasswordConfirmation { get; set; }
 
         [JsonProperty("department")]
         [OptionalRequestHeader("department_id")]
