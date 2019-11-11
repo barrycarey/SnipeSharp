@@ -95,7 +95,7 @@ namespace SnipeSharp.Endpoints
         {
             string response = _reqManager.Get(_endPoint, filter);
             ResponseCollection<T> result = JsonConvert.DeserializeObject<ResponseCollection<T>>(response);
-            return (result.Rows != null) ? result.Rows[0] : default(T);
+            return (result.Rows != null && result.Rows.Count >= 1) ? result.Rows[0] : default(T);
         }
 
         /// <summary>
