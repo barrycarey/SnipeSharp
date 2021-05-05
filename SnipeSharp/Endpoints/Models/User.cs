@@ -106,6 +106,9 @@ namespace SnipeSharp.Endpoints.Models
 
         [RequiredRequestHeader("password")]
         public string Password { get; set; }
+        
+        [RequiredRequestHeader("password_confirmation")]
+        public string PasswordConfirmation { get; set; }
 
         [JsonProperty("department")]
         [OptionalRequestHeader("department_id")]
